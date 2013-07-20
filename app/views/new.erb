@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>Awesome Event Creater</h1>
+  <h3>Make it a good one!</h3>
+
+  <% if @errors %>
+    <ul>
+    <% @errors.each do |e| %>
+      <li class="errors"><%= e %></li>
+    <% end %>
+  <% end %>
+
+
+<form action="/events/create" method="post">
+<input name= "event[title]" value="<%= @event.title %>" placeholder="Your awesome event"> 
+<br/>
+<input type="date" value= "<%= @event.date %>" name= "event[date]"> 
+<br/>
+<input name= "event[organizer_name]" value="<%= @event.organizer_name %>" placeholder="Mr. Organizer"> 
+<br/>
+<input name="event[organizer_email]" value="<%= @event.organizer_email %>" placeholder="me@gmail.com"> 
+<br/>
+<input type="submit" value="Submit" class="submit">
+</form>
+</div>
+
+<!-- Event.create({
+    :date => Date.today + i,
+    :title => "Event #{i}",
+    :organizer_name => "Organizer #{i}",
+    :organizer_email => "organizer_#{i}@example.com" 
+})
+ -->
